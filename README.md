@@ -128,6 +128,8 @@ AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name
 AZURE_OPENAI_MODEL_NAME=gpt-4o
 ```
 
+> ⚠️ **Security Note**: Never commit your `.env` file to version control. The `.gitignore` file is configured to exclude sensitive credentials.
+
 ### 4. Generate Sample Data
 ```bash
 # Generate synthetic tariff data
@@ -494,6 +496,33 @@ python start.py
 - **Agent Architecture**: Understanding the LangGraph implementation
 - **Customization**: Adding new agents and data sources
 - **Deployment**: Production deployment strategies
+
+## 🔒 Security & Best Practices
+
+### **Credential Management**
+- ✅ **Environment Variables**: All sensitive credentials are stored in `.env` file
+- ✅ **Git Ignore**: `.env` file is excluded from version control
+- ✅ **No Hardcoded Secrets**: No credentials are hardcoded in source code
+- ✅ **Template Files**: Example configurations use placeholder values
+
+### **Security Checklist**
+- [ ] Never commit `.env` file to git
+- [ ] Use strong, unique API keys
+- [ ] Rotate credentials regularly
+- [ ] Use environment-specific configurations
+- [ ] Monitor API usage and costs
+- [ ] Keep dependencies updated
+
+### **Production Deployment**
+```bash
+# Use environment variables in production
+export AZURE_OPENAI_API_KEY="your-production-key"
+export AZURE_OPENAI_ENDPOINT="https://your-production-endpoint"
+export SLACK_WEBHOOK_URL="https://your-production-webhook"
+
+# Or use a secure secrets management system
+# AWS Secrets Manager, Azure Key Vault, etc.
+```
 
 ## 🐛 Troubleshooting
 
