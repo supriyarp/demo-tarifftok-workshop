@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pydantic
+pandas
+openai
+langgraph
+python-dotenv
+python-multipart
+requests
+graphviz
+pygraphviz

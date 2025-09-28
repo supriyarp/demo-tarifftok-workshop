@@ -1,0 +1,9 @@
+supplier_id,country,risk,capacity_limit_qtr,lead_time_days,base_cost_multiplier,freight_adj,supplier_quality_score,lead_time_variation
+CN_Supplier_A,China,High,255878,21,1.044,0.3,2,15.2
+CN_Supplier_B,China,Low,474767,23,0.976,0.3,4,8.5
+VN_Supplier_X,Vietnam,High,214044,28,1.038,0.46,1,22.8
+VN_Supplier_Y,Vietnam,Low,302906,29,1.022,0.49,3,12.3
+MX_Supplier_M,Mexico,Medium,287848,5,0.99,0.2,3,18.7
+MX_Supplier_N,Mexico,Low,378576,4,1.003,0.24,4,16.1
+IN_Supplier_I,India,Low,211087,28,1.01,0.37,4,9.8
+IN_Supplier_J,India,Low,364283,28,0.972,0.39,5,7.2

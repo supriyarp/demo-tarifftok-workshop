@@ -1,0 +1,5 @@
+market_code,currency,timezone
+USA-West,USD,America/Los_Angeles
+USA-East,USD,America/New_York
+EU-West,EUR,Europe/Dublin
+EU-Central,EUR,Europe/Berlin

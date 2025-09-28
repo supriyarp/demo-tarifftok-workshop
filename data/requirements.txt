@@ -1,0 +1,45 @@
+# Retail Tariff Data Generation and Visualization Requirements
+# Python dependencies for synthetic data generation, HTML viewer, and agentic system
+
+# Core data manipulation and analysis
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Web framework for CRUD operations
+flask>=2.3.0
+flask-cors>=4.0.0
+
+# LangGraph and LangChain for agentic system
+langgraph>=0.6.0
+langchain>=0.3.0
+langchain-openai>=0.3.0
+langchain-community>=0.3.0
+
+# Data generation and random sampling
+# Note: pandas and numpy are sufficient for the current implementation
+# Additional packages can be added here as needed
+
+# Optional: For enhanced data analysis (uncomment if needed)
+# matplotlib>=3.5.0          # For plotting and visualization
+# seaborn>=0.11.0            # For statistical data visualization
+# plotly>=5.0.0             # For interactive plots
+# jupyter>=1.0.0            # For notebook development
+
+# Optional: For data export and processing (uncomment if needed)
+# openpyxl>=3.0.0           # For Excel file support
+# xlsxwriter>=3.0.0        # For Excel writing
+# sqlalchemy>=1.4.0        # For database operations
+
+# Development and testing (uncomment if needed)
+# pytest>=7.0.0            # For unit testing
+# black>=22.0.0            # For code formatting
+# flake8>=4.0.0            # For code linting
+
+# Installation instructions:
+# pip install -r requirements.txt
+#
+# For minimal installation (core functionality only):
+# pip install pandas numpy
+#
+# For development environment:
+# pip install -r requirements.txt
