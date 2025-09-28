@@ -208,6 +208,25 @@ async def root():
                 letter-spacing: 0.5px;
             }
             
+            .contact-btn { 
+                background: #FF6B35; 
+                color: white; border: none; border-radius: 6px; 
+                cursor: pointer; font-size: 14px; display: flex;
+                align-items: center; justify-content: center;
+                transition: all 0.2s; margin-left: 8px;
+                padding: 10px 12px; gap: 6px;
+                min-width: auto; height: auto;
+            }
+            .contact-btn:hover:not(:disabled) { 
+                background: #E55A2B; transform: translateY(-1px);
+            }
+            .contact-btn:active { transform: scale(0.95); }
+            .contact-text {
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+            }
+            
             .examples { 
                 background: #f8f9fa; padding: 15px; border-radius: 10px; 
                 margin: 10px 0; border-left: 4px solid #667eea;
@@ -341,6 +360,10 @@ async def root():
                     <button class="graph-btn" onclick="showGraph()" title="View Execution Graph">
                         <span>🔄</span>
                         <span class="graph-text">Graph</span>
+                    </button>
+                    <button class="contact-btn" onclick="showContact()" title="Contact & Community">
+                        <span>📞</span>
+                        <span class="contact-text">Contact</span>
                     </button>
                 </div>
             </div>
@@ -818,6 +841,85 @@ async def root():
                     slackBtn.disabled = true;
                     slackBtn.title = 'Send to Slack (no message to send)';
                 }
+            }
+            
+            function showContact() {
+                // Create a modal to display contact information
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                    background: rgba(0,0,0,0.8); z-index: 1000; display: flex;
+                    align-items: center; justify-content: center;
+                `;
+                
+                const content = document.createElement('div');
+                content.style.cssText = `
+                    background: white; padding: 30px; border-radius: 15px;
+                    max-width: 500px; max-height: 80%; overflow: auto;
+                    position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                `;
+                
+                content.innerHTML = `
+                    <h2 style="margin-top: 0; color: #2c3e50; text-align: center;">📞 Contact & Community</h2>
+                    
+                    <div style="text-align: center; margin-bottom: 25px;">
+                        <h3 style="color: #667eea; margin: 0 0 10px 0;">Supriya Ramarao Prasanna</h3>
+                        <p style="color: #7f8c8d; margin: 0; font-style: italic;">Creator of TariffTok AI</p>
+                    </div>
+                    
+                    <div style="display: grid; gap: 15px;">
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
+                            <strong style="color: #2c3e50;">🐙 GitHub</strong><br>
+                            <a href="https://github.com/supriyarp" target="_blank" style="color: #667eea; text-decoration: none;">
+                                @supriyarp
+                            </a>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #0077b5;">
+                            <strong style="color: #2c3e50;">💼 LinkedIn</strong><br>
+                            <a href="https://www.linkedin.com/in/supriya-rp/" target="_blank" style="color: #0077b5; text-decoration: none;">
+                                Connect with Supriya
+                            </a>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #ff6b35;">
+                            <strong style="color: #2c3e50;">🎤 Conference</strong><br>
+                            <a href="https://events.techfutures.com/2025/agenda/speakers/3778652" target="_blank" style="color: #ff6b35; text-decoration: none;">
+                                Women Who Code TechFutures 2025
+                            </a>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #28a745;">
+                            <strong style="color: #2c3e50;">📁 Repository</strong><br>
+                            <a href="https://github.com/supriyarp/demo-tarifftok-workshop" target="_blank" style="color: #28a745; text-decoration: none;">
+                                TariffTok AI Project
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 25px; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px; text-align: center;">
+                        <p style="margin: 0; font-size: 14px;">
+                            <strong>🌟 Built with ❤️ for the Women Who Code community</strong><br>
+                            <span style="font-size: 12px; opacity: 0.9;">Demonstrating advanced agentic AI orchestration patterns</span>
+                        </p>
+                    </div>
+                    
+                    <button onclick="this.closest('div').parentNode.remove()" style="
+                        position: absolute; top: 15px; right: 15px; background: #e74c3c;
+                        color: white; border: none; border-radius: 50%; width: 30px; height: 30px;
+                        cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center;
+                    ">×</button>
+                `;
+                
+                modal.appendChild(content);
+                document.body.appendChild(modal);
+                
+                // Close modal when clicking outside
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
             }
             
             // Event listeners
