@@ -4,6 +4,9 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com)
 [![LangGraph](https://img.shields.io/badge/LangGraph-0.2+-purple.svg)](https://langchain-ai.github.io/langgraph/)
 [![Azure OpenAI](https://img.shields.io/badge/Azure%20OpenAI-GPT--4-orange.svg)](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/supriyarp/demo-tarifftok-workshop)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Women Who Code](https://img.shields.io/badge/Women%20Who%20Code-TechFutures%202025-pink.svg)](https://events.techfutures.com/2025/agenda/speakers/3778652)
 
 > **Agentic tariff analysis system using LangGraph for dynamic multi-agent orchestration**
 
@@ -93,6 +96,16 @@ This project demonstrates the potential for **agentic AI** to transform how busi
 - **Pydantic Validation**: Type-safe data models for agent state management
 - **Autonomous Error Recovery**: Agents gracefully handle errors and provide user guidance
 
+## 📍 Repository Information
+
+**GitHub Repository**: [https://github.com/supriyarp/demo-tarifftok-workshop](https://github.com/supriyarp/demo-tarifftok-workshop)
+
+- **🌟 Stars**: Show your support by starring this repository
+- **🍴 Forks**: Fork to contribute or customize for your needs
+- **📋 Issues**: Report bugs or request features
+- **💬 Discussions**: Join the conversation about agentic AI
+- **📖 Wiki**: Additional documentation and tutorials
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -102,7 +115,7 @@ This project demonstrates the potential for **agentic AI** to transform how busi
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/demo-tarifftok-workshop.git
+git clone https://github.com/supriyarp/demo-tarifftok-workshop.git
 cd demo-tarifftok-workshop
 ```
 
@@ -207,6 +220,8 @@ graph TD
 6. **Visualization**: Charts and graphs generated for comparisons
 
 ## 📁 Project Structure
+
+**Repository**: [https://github.com/supriyarp/demo-tarifftok-workshop](https://github.com/supriyarp/demo-tarifftok-workshop)
 
 ```
 demo-tarifftok-workshop/
@@ -449,12 +464,26 @@ tail -f logs/tarifftok-ai.log
 - **Concurrent Users**: Supports 50+ simultaneous users
 - **Memory Usage**: Minimal state overhead
 
+## 🌟 GitHub Community
+
+### **Show Your Support**
+- ⭐ **Star this repository** to show your appreciation
+- 🍴 **Fork the project** to create your own version
+- 👀 **Watch for updates** to stay informed about new features
+- 💬 **Join discussions** to share ideas and get help
+
+### **Contribute to the Project**
+- 🐛 **Report bugs** via GitHub Issues
+- 💡 **Suggest features** through Discussions
+- 📝 **Improve documentation** with Pull Requests
+- 🔧 **Fix issues** and submit Pull Requests
+
 ## 🤝 Contributing
 
 ### Development Setup
 ```bash
 # Fork the repository
-git clone https://github.com/your-username/demo-tarifftok-workshop.git
+git clone https://github.com/supriyarp/demo-tarifftok-workshop.git
 
 # Create development branch
 git checkout -b feature/your-feature-name
@@ -584,15 +613,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **FastAPI**: For the high-performance web framework
 - **Community Contributors**: For feedback and improvements
 
-## 📞 Contact
+## 📞 Contact & Community
 
 **Supriya Ramarao Prasanna**
+- **GitHub**: [@supriyarp](https://github.com/supriyarp)
 - **LinkedIn**: [https://www.linkedin.com/in/supriya-rp/](https://www.linkedin.com/in/supriya-rp/)
 - **Conference**: [Women Who Code TechFutures 2025](https://events.techfutures.com/2025/agenda/speakers/3778652)
-- **Email**: [Contact via LinkedIn](https://www.linkedin.com/in/supriya-rp/)
+- **Repository**: [https://github.com/supriyarp/demo-tarifftok-workshop](https://github.com/supriyarp/demo-tarifftok-workshop)
+
+### **Get Involved**
+- 💬 **GitHub Discussions**: Share ideas and ask questions
+- 🐛 **GitHub Issues**: Report bugs or request features
+- 🔄 **GitHub Actions**: CI/CD workflows for automated testing
+- 📊 **GitHub Insights**: View project statistics and contributions
 
 ---
 
 **Built with ❤️ for the Women Who Code community**
 
 *This project demonstrates advanced AI orchestration patterns and real-world business applications using modern technologies including LangGraph, Azure OpenAI, and FastAPI.*
+
+**⭐ Star this repository if you found it helpful!**
