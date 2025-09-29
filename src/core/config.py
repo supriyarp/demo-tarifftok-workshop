@@ -67,6 +67,17 @@ def load_settings() -> Settings:
     # Load environment variables from .env file if it exists
     load_dotenv()
     
+    # Debug: Print environment variables (without sensitive values)
+    print("🔧 Environment Variables Debug:")
+    print(f"AZURE_OPENAI_API_KEY: {'SET' if os.getenv('AZURE_OPENAI_API_KEY') else 'NOT SET'}")
+    print(f"AZURE_OPENAI_ENDPOINT: {'SET' if os.getenv('AZURE_OPENAI_ENDPOINT') else 'NOT SET'}")
+    print(f"AZURE_OPENAI_DEPLOYMENT_NAME: {'SET' if os.getenv('AZURE_OPENAI_DEPLOYMENT_NAME') else 'NOT SET'}")
+    print(f"AZURE_OPENAI_API_VERSION: {os.getenv('AZURE_OPENAI_API_VERSION', 'NOT SET')}")
+    print(f"AZURE_OPENAI_MODEL_NAME: {os.getenv('AZURE_OPENAI_MODEL_NAME', 'NOT SET')}")
+    print(f"APP_ENV: {os.getenv('APP_ENV', 'NOT SET')}")
+    print(f"DEBUG: {os.getenv('DEBUG', 'NOT SET')}")
+    print("=" * 50)
+    
     # Create settings from environment variables
     settings = Settings(
         azure_openai_api_key=os.getenv("AZURE_OPENAI_API_KEY", ""),
