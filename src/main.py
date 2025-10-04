@@ -296,10 +296,78 @@ async def root():
             
             .hidden { display: none; }
             
+            /* Demo Questions Tab Styles */
+            .demo-tabs {
+                background: white; border-radius: 15px; 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+                margin-bottom: 20px; overflow: hidden;
+            }
+            
+            .tab-header {
+                display: flex; background: #f8f9fa; border-bottom: 1px solid #e9ecef;
+            }
+            
+            .tab-button {
+                flex: 1; padding: 15px 20px; background: none; border: none;
+                cursor: pointer; font-size: 14px; font-weight: 600;
+                color: #6c757d; transition: all 0.3s ease;
+                border-bottom: 3px solid transparent;
+            }
+            
+            .tab-button.active {
+                color: #667eea; background: white;
+                border-bottom-color: #667eea;
+            }
+            
+            .tab-button:hover:not(.active) {
+                color: #495057; background: #e9ecef;
+            }
+            
+            .tab-content {
+                padding: 20px; display: none;
+            }
+            
+            .tab-content.active {
+                display: block;
+            }
+            
+            .question-category {
+                margin-bottom: 25px;
+            }
+            
+            .category-title {
+                font-size: 16px; font-weight: bold; color: #2c3e50;
+                margin-bottom: 12px; padding-bottom: 8px;
+                border-bottom: 2px solid #667eea; display: inline-block;
+            }
+            
+            .demo-question {
+                background: #f8f9fa; padding: 12px 16px; margin: 8px 0; 
+                border-radius: 8px; cursor: pointer; transition: all 0.2s;
+                border: 1px solid #e9ecef; font-size: 14px;
+                color: #495057; position: relative;
+            }
+            
+            .demo-question:hover {
+                background: #667eea; color: white; transform: translateX(5px);
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            }
+            
+            .demo-question::before {
+                content: "💬"; margin-right: 8px; opacity: 0.7;
+            }
+            
+            .demo-question:hover::before {
+                opacity: 1;
+            }
+            
             @media (max-width: 768px) {
                 .comparison-grid { grid-template-columns: 1fr; }
                 .query-box { width: 100%; margin-bottom: 10px; }
                 .submit-btn { width: 100%; margin-left: 0; }
+                .tab-header { flex-direction: column; }
+                .tab-button { border-bottom: 1px solid #e9ecef; border-right: none; }
+                .tab-button.active { border-bottom-color: #e9ecef; border-left: 3px solid #667eea; }
             }
         </style>
     </head>
@@ -320,57 +388,141 @@ async def root():
                 </div>
             </div>
             
-            <div class="chat-container">
-                <div class="chat-header">
-                    💬 Chat with TariffTok AI
+            <!-- Demo Questions Tab -->
+            <div class="demo-tabs">
+                <div class="tab-header">
+                    <button class="tab-button active" onclick="showTab('chat')">💬 Chat</button>
+                    <button class="tab-button" onclick="showTab('demo')">📋 Demo Questions</button>
                 </div>
                 
-                <div class="chat-messages" id="chatMessages">
-                    <div class="message bot">
-                        <div class="message-avatar">🤖</div>
-                        <div class="message-content">
-                            <p>Hello! I'm your TariffTok AI assistant. I can help you analyze tariff rates for different countries and products.</p>
-                            
-                            <div class="examples">
-                                <h4>💡 Try asking me:</h4>
-                                <div class="example-question" onclick="sendExampleQuestion('What is the tariff rate for Electronics from China?')">
-                                    What's the tariff rate for Electronics from China?
-                                </div>
-                                <div class="example-question" onclick="sendExampleQuestion('How much tariff is charged on Toys from Vietnam?')">
-                                    How much tariff is charged on Toys from Vietnam?
-                                </div>
-                                <div class="example-question" onclick="sendExampleQuestion('Compare tariff rates for Electronics between China and Vietnam')">
-                                    Compare tariff rates for Electronics between China and Vietnam
-                                </div>
-                                <div class="example-question" onclick="sendExampleQuestion('What data do you have available?')">
-                                    What data do you have available?
+                <div id="chat-tab" class="tab-content active">
+                    <div class="chat-container">
+                        <div class="chat-header">
+                            💬 Chat with TariffTok AI
+                        </div>
+                        
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message bot">
+                                <div class="message-avatar">🤖</div>
+                                <div class="message-content">
+                                    <p>Hello! I'm your TariffTok AI assistant. I can help you analyze tariff rates for different countries and products.</p>
+                                    
+                                    <div class="examples">
+                                        <h4>💡 Try asking me:</h4>
+                                        <div class="example-question" onclick="sendExampleQuestion('What is the tariff rate for Electronics from China?')">
+                                            What's the tariff rate for Electronics from China?
+                                        </div>
+                                        <div class="example-question" onclick="sendExampleQuestion('How much tariff is charged on Toys from Vietnam?')">
+                                            How much tariff is charged on Toys from Vietnam?
+                                        </div>
+                                        <div class="example-question" onclick="sendExampleQuestion('Compare tariff rates for Electronics between China and Vietnam')">
+                                            Compare tariff rates for Electronics between China and Vietnam
+                                        </div>
+                                        <div class="example-question" onclick="sendExampleQuestion('What data do you have available?')">
+                                            What data do you have available?
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <div class="chat-input-container">
+                            <input type="text" id="chatInput" class="chat-input" placeholder="Ask me about tariff rates..." autocomplete="off">
+                            <button class="send-btn" onclick="sendMessage()">➤</button>
+                            <button class="slack-btn" id="slackBtn" onclick="sendToSlack()" title="Send to Slack" disabled>
+                                <span>💬</span>
+                                <span class="slack-text">Slack me</span>
+                            </button>
+                            <button class="graph-btn" onclick="showGraph()" title="View Execution Graph">
+                                <span>🔄</span>
+                                <span class="graph-text">Graph</span>
+                            </button>
+                            <button class="contact-btn" onclick="showContact()" title="Contact & Community">
+                                <span>📞</span>
+                                <span class="contact-text">Contact</span>
+                            </button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="chat-input-container">
-                    <input type="text" id="chatInput" class="chat-input" placeholder="Ask me about tariff rates..." autocomplete="off">
-                    <button class="send-btn" onclick="sendMessage()">➤</button>
-                    <button class="slack-btn" id="slackBtn" onclick="sendToSlack()" title="Send to Slack" disabled>
-                        <span>💬</span>
-                        <span class="slack-text">Slack me</span>
-                    </button>
-                    <button class="graph-btn" onclick="showGraph()" title="View Execution Graph">
-                        <span>🔄</span>
-                        <span class="graph-text">Graph</span>
-                    </button>
-                    <button class="contact-btn" onclick="showContact()" title="Contact & Community">
-                        <span>📞</span>
-                        <span class="contact-text">Contact</span>
-                    </button>
+                <div id="demo-tab" class="tab-content">
+                    <div class="question-category">
+                        <h3 class="category-title">🔍 Basic Tariff Rate Queries</h3>
+                        <div class="demo-question" onclick="sendExampleQuestion('What\\'s the tariff rate for Electronics from China?')">
+                            What's the tariff rate for Electronics from China?
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('How much tariff is charged on Toys from Vietnam?')">
+                            How much tariff is charged on Toys from Vietnam?
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('What is the import duty for Apparel from Mexico?')">
+                            What is the import duty for Apparel from Mexico?
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('Show me the tariff rate for Home from India')">
+                            Show me the tariff rate for Home from India
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('What\\'s the current tariff on Electronics from Vietnam?')">
+                            What's the current tariff on Electronics from Vietnam?
+                        </div>
+                    </div>
+                    
+                    <div class="question-category">
+                        <h3 class="category-title">📊 Comparison Queries</h3>
+                        <div class="demo-question" onclick="sendExampleQuestion('Compare tariff rates for Electronics between China and Vietnam')">
+                            Compare tariff rates for Electronics between China and Vietnam
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('Which country has lower tariffs for Toys - India or Mexico?')">
+                            Which country has lower tariffs for Toys - India or Mexico?
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('Compare import duties for Apparel across all countries')">
+                            Compare import duties for Apparel across all countries
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('Show me tariff comparison for Home between China and India')">
+                            Show me tariff comparison for Home between China and India
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('What are the tariff differences for Electronics between Vietnam and Mexico?')">
+                            What are the tariff differences for Electronics between Vietnam and Mexico?
+                        </div>
+                    </div>
+                    
+                    <div class="question-category">
+                        <h3 class="category-title">ℹ️ General Information Queries</h3>
+                        <div class="demo-question" onclick="sendExampleQuestion('What data do you have available?')">
+                            What data do you have available?
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('Which countries and products are supported?')">
+                            Which countries and products are supported?
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('What\\'s the range of tariff rates in your database?')">
+                            What's the range of tariff rates in your database?
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('Show me all available product categories')">
+                            Show me all available product categories
+                        </div>
+                        <div class="demo-question" onclick="sendExampleQuestion('What countries can I get tariff information for?')">
+                            What countries can I get tariff information for?
+                        </div>
+                    </div>
                 </div>
-            </div>
         </div>
         
         <script>
             let currentChart = null;
+            
+            function showTab(tabName) {
+                // Hide all tab contents
+                const tabContents = document.querySelectorAll('.tab-content');
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Remove active class from all tab buttons
+                const tabButtons = document.querySelectorAll('.tab-button');
+                tabButtons.forEach(button => button.classList.remove('active'));
+                
+                // Show selected tab content
+                document.getElementById(tabName + '-tab').classList.add('active');
+                
+                // Add active class to clicked button
+                event.target.classList.add('active');
+            }
             
             function addMessage(content, isUser = false, dataAttributes = {}) {
                 const chatMessages = document.getElementById('chatMessages');
@@ -579,7 +731,13 @@ async def root():
             }
             
             function sendExampleQuestion(question) {
+                // Switch to chat tab
+                showTab('chat');
+                
+                // Set the question in the input field
                 document.getElementById('chatInput').value = question;
+                
+                // Send the message
                 sendMessage();
             }
             
@@ -614,7 +772,7 @@ async def root():
                         let responseContent = '';
                         
                         // Check if this is a comparison query
-                        if (query.toLowerCase().includes('compare') && data.comparison_data && data.comparison_data.length > 0) {
+                        if ((query.toLowerCase().includes('compare') || query.toLowerCase().includes('comparison')) && data.comparison_data && data.comparison_data.length > 0) {
                             responseContent = formatComparisonResponse(data);
                         } else {
                             responseContent = formatSingleTariffResponse(data);
@@ -631,7 +789,7 @@ async def root():
                         const messageContent = addMessage(responseContent, false, executionMetadata);
                         
                         // Create charts if it's a comparison
-                        if (query.toLowerCase().includes('compare') && data.comparison_data && data.comparison_data.length > 0) {
+                        if ((query.toLowerCase().includes('compare') || query.toLowerCase().includes('comparison')) && data.comparison_data && data.comparison_data.length > 0) {
                             setTimeout(() => {
                                 createComparisonChart(messageContent, data);
                             }, 100);
