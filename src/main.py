@@ -1,5 +1,5 @@
 """
-FastAPI server for the TariffTok AI system.
+FastAPI server for the TariffTok ✦ AI system.
 """
 
 import uvicorn
@@ -16,7 +16,7 @@ from src.core.data_loader import data_loader
 
 # Initialize FastAPI app
 app = FastAPI(
-    title="TariffTok AI",
+    title="TariffTok ✦ AI",
     description="AI-powered tariff analysis system using LangGraph",
     version="1.0.0",
     debug=settings.debug
@@ -33,7 +33,7 @@ async def root():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>TariffTok AI - Advanced Tariff Analysis</title>
+        <title>TariffTok ✦ AI - Advanced Tariff Analysis</title>
         <link rel="icon" type="image/png" href="/static/images/icon.png">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
@@ -68,9 +68,16 @@ async def root():
                 color: #95a5a6; margin: 5px 0 0 0; font-size: 0.9em; 
                 font-style: italic;
             }
+            .built-by a { 
+                color: #667eea; text-decoration: none; font-weight: 500;
+                transition: all 0.3s ease;
+            }
             .built-by a:hover { 
-                color: #764ba2; text-decoration: underline; 
-                transition: color 0.3s ease;
+                color: #e74c3c !important; 
+                text-decoration: underline !important; 
+                transform: translateY(-2px) !important;
+                font-size: 1.1em !important;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
             }
             
             .header-left { 
@@ -86,6 +93,17 @@ async def root():
                 padding: 8px 16px; border-radius: 20px; 
                 box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
                 display: flex; align-items: center; justify-content: center;
+                transition: all 0.3s ease;
+            }
+            .women-who-code:hover { 
+                transform: scale(1.1);
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            }
+            .women-who-code img { 
+                transition: all 0.3s ease;
+            }
+            .women-who-code:hover img { 
+                transform: scale(1.05);
             }
             
             .chat-container { 
@@ -375,9 +393,9 @@ async def root():
         <div class="container">
             <div class="header">
                 <div class="header-left">
-                    <h1><img src="/static/images/icon.png" alt="TariffTok AI" style="width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px;">TariffTok AI</h1>
+                    <h1><img src="/static/images/icon.png" alt="TariffTok ✦ AI" style="width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px;">TariffTok ✦ AI</h1>
                     <p class="subtitle">Your AI Assistant for Tariff Analysis</p>
-                    <p class="built-by">Built by <a href="https://www.linkedin.com/in/supriya-rp/" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 500;">Supriya Ramarao Prasanna</a></p>
+                    <p class="built-by">Built by <a href="https://www.linkedin.com/in/supriya-rp/" target="_blank">Supriya Ramarao Prasanna</a></p>
                 </div>
                 <div class="header-right">
                     <div class="women-who-code">
@@ -398,14 +416,14 @@ async def root():
                 <div id="chat-tab" class="tab-content active">
                     <div class="chat-container">
                         <div class="chat-header">
-                            💬 Chat with TariffTok AI
+                            💬 Chat with TariffTok ✦ AI
                         </div>
                         
                         <div class="chat-messages" id="chatMessages">
                             <div class="message bot">
                                 <div class="message-avatar">🤖</div>
                                 <div class="message-content">
-                                    <p>Hello! I'm your TariffTok AI assistant. I can help you analyze tariff rates for different countries and products.</p>
+                                    <p>Hello! I'm your TariffTok ✦ AI assistant. I can help you analyze tariff rates for different countries and products.</p>
                                     
                                     <div class="examples">
                                         <h4>💡 Try asking me:</h4>
@@ -429,8 +447,8 @@ async def root():
                         <div class="chat-input-container">
                             <input type="text" id="chatInput" class="chat-input" placeholder="Ask me about tariff rates..." autocomplete="off">
                             <button class="send-btn" onclick="sendMessage()">➤</button>
-                            <button class="slack-btn" id="slackBtn" onclick="sendToSlack()" title="Send to Slack" disabled>
-                                <span>💬</span>
+                            <button class="slack-btn" id="slackBtn" onclick="sendToSlack()" title="Send to Slack" disabled style="display: none;">
+                                <img src="/static/images/slack_symbol.png" alt="Slack" style="width: 16px; height: 16px;">
                                 <span class="slack-text">Slack me</span>
                             </button>
                             <button class="graph-btn" onclick="showGraph()" title="View Execution Graph">
@@ -600,7 +618,7 @@ async def root():
                         `;
                         
                         content.innerHTML = `
-                            <h2 style="margin-top: 0; color: #2c3e50;">🔄 TariffTok AI Execution Graph</h2>
+                            <h2 style="margin-top: 0; color: #2c3e50;">🔄 TariffTok ✦ AI Execution Graph</h2>
                             <p style="color: #666; margin-bottom: 20px;">
                                 This shows the dynamic LangGraph execution flow:
                             </p>
@@ -968,7 +986,7 @@ async def root():
                         // Show success feedback
                         slackBtn.innerHTML = '<span>✅</span>';
                         setTimeout(() => {
-                            slackBtn.innerHTML = '<span>💬</span>';
+                            slackBtn.innerHTML = '<img src="/static/images/slack_symbol.png" alt="Slack" style="width: 16px; height: 16px;"><span class="slack-text">Slack me</span>';
                             slackBtn.disabled = false;
                         }, 2000);
                     } else {
@@ -979,7 +997,7 @@ async def root():
                     console.error('Slack send error:', error);
                     slackBtn.innerHTML = '<span>❌</span>';
                     setTimeout(() => {
-                        slackBtn.innerHTML = '<span>💬</span>';
+                        slackBtn.innerHTML = '<img src="/static/images/slack_symbol.png" alt="Slack" style="width: 16px; height: 16px;"><span class="slack-text">Slack me</span>';
                         slackBtn.disabled = false;
                     }, 2000);
                     alert('Failed to send to Slack: ' + error.message);
@@ -1022,7 +1040,7 @@ async def root():
                     
                     <div style="text-align: center; margin-bottom: 25px;">
                         <h3 style="color: #667eea; margin: 0 0 10px 0;">Supriya Ramarao Prasanna</h3>
-                        <p style="color: #7f8c8d; margin: 0; font-style: italic;">Creator of TariffTok AI</p>
+                        <p style="color: #7f8c8d; margin: 0; font-style: italic;">Creator of TariffTok ✦ AI</p>
                     </div>
                     
                     <div style="display: grid; gap: 15px;">
@@ -1050,7 +1068,7 @@ async def root():
                         <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #28a745;">
                             <strong style="color: #2c3e50;">📁 Repository</strong><br>
                             <a href="https://github.com/supriyarp/demo-tarifftok-workshop" target="_blank" style="color: #28a745; text-decoration: none;">
-                                TariffTok AI Project
+                                TariffTok ✦ AI Project
                             </a>
                         </div>
                     </div>
@@ -1080,12 +1098,40 @@ async def root():
                 });
             }
             
+            // Check Slack configuration on page load
+            function checkSlackConfiguration() {
+                fetch('/api/slack/send', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: 'test', query: 'test' })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const slackBtn = document.getElementById('slackBtn');
+                    if (data.success && data.message === 'Successfully sent to Slack') {
+                        // Show Slack button if properly configured
+                        slackBtn.style.display = 'flex';
+                        slackBtn.disabled = false;
+                    } else {
+                        // Keep Slack button hidden if not configured or has errors
+                        slackBtn.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    // Hide Slack button on any error
+                    document.getElementById('slackBtn').style.display = 'none';
+                });
+            }
+            
             // Event listeners
             document.getElementById('chatInput').addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     sendMessage();
                 }
             });
+            
+            // Check Slack configuration when page loads
+            checkSlackConfiguration();
             
             // Add typing animation CSS
             const style = document.createElement('style');
@@ -1234,13 +1280,13 @@ async def send_to_slack(request: dict):
         
         # Create Slack message payload
         slack_payload = {
-            "text": f"🏭 *TariffTok AI Analysis*",
+            "text": f"🏭 *TariffTok ✦ AI Analysis*",
             "blocks": [
                 {
                     "type": "header",
                     "text": {
                         "type": "plain_text",
-                        "text": "🏭 TariffTok AI Analysis"
+                        "text": "🏭 TariffTok ✦ AI Analysis"
                     }
                 },
                 {
@@ -1261,7 +1307,7 @@ async def send_to_slack(request: dict):
                     "elements": [
                         {
                             "type": "mrkdwn",
-                            "text": f"Generated by TariffTok AI at {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+                            "text": f"Generated by TariffTok ✦ AI at {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
                         }
                     ]
                 }
@@ -1281,7 +1327,9 @@ async def send_to_slack(request: dict):
         else:
             return {
                 "success": False,
-                "error": f"Slack API returned status {response.status_code}: {response.text}"
+                "error": f"Slack API returned status {response.status_code}: {response.text}",
+                "status_code": response.status_code,
+                "response_text": response.text
             }
             
     except requests.exceptions.Timeout:
