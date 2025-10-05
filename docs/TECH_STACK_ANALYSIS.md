@@ -29,7 +29,7 @@ The system follows a modern microservices architecture with the following compon
 
 ## Backend Framework & API
 
-### FastAPI + Uvicorn
+### FastAPI
 
 **Purpose in TariffTok AI:** High-performance API server that handles tariff analysis requests and provides real-time chat endpoints with automatic documentation.
 
@@ -55,6 +55,31 @@ The system follows a modern microservices architecture with the following compon
 - **ASP.NET Core**: Microsoft ecosystem, excellent performance, but Windows-centric
 
 **Recommendation**: FastAPI is an excellent choice for this project due to its performance, type safety, and automatic documentation features.
+
+### Uvicorn
+
+**Purpose in TariffTok AI:** ASGI server that provides high-performance async execution for the FastAPI application with automatic reloading during development.
+
+**Current Implementation:**
+- ASGI-compatible web server for FastAPI
+- High-performance async request handling
+- Automatic reloading in development mode
+- Production-ready with multiple worker support
+
+**Merits:**
+- **High Performance**: Built on uvloop for maximum async performance
+- **ASGI Support**: Native async/await support for Python web applications
+- **Development Friendly**: Hot reloading for faster development cycles
+- **Production Ready**: Supports multiple workers and process management
+- **Lightweight**: Minimal overhead compared to traditional WSGI servers
+
+**Alternatives:**
+- **Gunicorn**: More mature, better for WSGI applications
+- **Hypercorn**: Pure Python ASGI server, good for development
+- **Daphne**: Django Channels' ASGI server
+- **Nginx + uWSGI**: Traditional setup with reverse proxy
+
+**Recommendation**: Uvicorn is the ideal choice for serving FastAPI applications due to its ASGI support and excellent async performance.
 
 ## AI/ML Components
 
