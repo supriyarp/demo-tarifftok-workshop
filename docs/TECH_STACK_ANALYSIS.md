@@ -31,6 +31,8 @@ The system follows a modern microservices architecture with the following compon
 
 ### FastAPI + Uvicorn
 
+**Purpose in TariffTok AI:** High-performance API server that handles tariff analysis requests and provides real-time chat endpoints with automatic documentation.
+
 **Current Implementation:**
 - High-performance async web framework
 - Automatic API documentation with OpenAPI/Swagger
@@ -58,6 +60,8 @@ The system follows a modern microservices architecture with the following compon
 
 ### LangGraph (Agent Orchestration)
 
+**Purpose in TariffTok AI:** Orchestrates dynamic routing of user queries to appropriate AI agents and manages execution flow with visualization capabilities.
+
 **Current Implementation:**
 - Dynamic routing based on query intent analysis
 - Execution tracking and visualization capabilities
@@ -83,6 +87,8 @@ The system follows a modern microservices architecture with the following compon
 
 ### Azure OpenAI (GPT-4o)
 
+**Purpose in TariffTok AI:** Powers natural language understanding for parsing tariff queries and generates human-readable responses with enterprise-grade security.
+
 **Current Implementation:**
 - Enterprise-grade AI model access
 - Secure API endpoints with data residency controls
@@ -107,6 +113,8 @@ The system follows a modern microservices architecture with the following compon
 **Recommendation**: Azure OpenAI is ideal for enterprise applications requiring security, compliance, and reliability.
 
 ### Pydantic (Data Validation)
+
+**Purpose in TariffTok AI:** Ensures type safety and data integrity for API requests/responses and validates tariff data models throughout the processing pipeline.
 
 **Current Implementation:**
 - Runtime type checking and validation
@@ -135,6 +143,8 @@ The system follows a modern microservices architecture with the following compon
 
 ### Pandas + CSV Files
 
+**Purpose in TariffTok AI:** Stores and manages tariff data efficiently while enabling easy data manipulation and updates without database complexity.
+
 **Current Implementation:**
 - CSV-based data storage for tariff information
 - Pandas for data manipulation and analysis
@@ -159,6 +169,8 @@ The system follows a modern microservices architecture with the following compon
 **Recommendation**: For development and small-scale deployments, CSV files are sufficient. Consider PostgreSQL for production with high data volumes.
 
 ### Flask (CRUD Server)
+
+**Purpose in TariffTok AI:** Provides REST API endpoints for data management operations, enabling administrators to update tariff rates and product information.
 
 **Current Implementation:**
 - Lightweight web framework for data management
@@ -187,6 +199,8 @@ The system follows a modern microservices architecture with the following compon
 
 ### HTML5 + CSS3 + Vanilla JavaScript
 
+**Purpose in TariffTok AI:** Creates an interactive chat-based user interface for natural language tariff queries with real-time communication to AI services.
+
 **Current Implementation:**
 - Direct browser execution without build process
 - Responsive design with CSS Grid and Flexbox
@@ -211,6 +225,8 @@ The system follows a modern microservices architecture with the following compon
 **Recommendation**: For simple interfaces, vanilla JavaScript is sufficient. Consider React or Vue.js for more complex interactions.
 
 ### Chart.js
+
+**Purpose in TariffTok AI:** Visualizes tariff rate comparisons and trends through interactive charts, making complex tariff data easily understandable for users.
 
 **Current Implementation:**
 - Interactive charts for tariff rate comparisons
@@ -239,6 +255,8 @@ The system follows a modern microservices architecture with the following compon
 
 ### Docker
 
+**Purpose in TariffTok AI:** Containerizes the application for consistent deployment across environments and enables easy scaling of the AI-powered tariff analysis system.
+
 **Current Implementation:**
 - Containerized application deployment
 - Multi-stage builds for optimization
@@ -263,6 +281,8 @@ The system follows a modern microservices architecture with the following compon
 **Recommendation**: Docker is essential for modern application deployment and provides excellent consistency across environments.
 
 ### Python 3.11
+
+**Purpose in TariffTok AI:** Provides the runtime environment with performance improvements and async support for the AI-powered tariff analysis backend.
 
 **Current Implementation:**
 - Modern Python version with performance improvements
@@ -291,6 +311,8 @@ The system follows a modern microservices architecture with the following compon
 
 ### Graphviz
 
+**Purpose in TariffTok AI:** Generates automatic graph visualizations of the LangGraph execution flow, enabling developers to understand and debug the AI decision-making process.
+
 **Current Implementation:**
 - Automatic graph layout for LangGraph visualization
 - DOT language for graph description
@@ -317,6 +339,8 @@ The system follows a modern microservices architecture with the following compon
 ## Communication & Integration
 
 ### Slack Webhooks
+
+**Purpose in TariffTok AI:** Enables real-time sharing of tariff analysis results to team channels, facilitating collaborative decision-making and notifications.
 
 **Current Implementation:**
 - Real-time notifications for tariff analysis results
