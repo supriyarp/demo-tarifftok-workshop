@@ -7,6 +7,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/supriyarp/demo-tarifftok-workshop)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Women Who Code](https://img.shields.io/badge/Women%20Who%20Code-TechFutures%202025-pink.svg)](https://events.techfutures.com/2025/agenda/speakers/3778652)
+[![Slides](https://img.shields.io/badge/📽️_Presentation-Slides-blue.svg)](https://1drv.ms/p/c/2fd25f40da59e090/Edtbn0xPuzdDnEmDpLNWroQBwM32Exkm5wa932u2Bnt3VA)
 
 > **Agentic tariff analysis system using LangGraph for dynamic multi-agent orchestration**
 
@@ -105,6 +106,23 @@ This project demonstrates the potential for **agentic AI** to transform how busi
 - **📋 Issues**: Report bugs or request features
 - **💬 Discussions**: Join the conversation about agentic AI
 - **📖 Wiki**: Additional documentation and tutorials
+
+## 📽️ Presentation & Resources
+
+**Conference Presentation**: [View Slides](https://1drv.ms/p/c/2fd25f40da59e090/Edtbn0xPuzdDnEmDpLNWroQBwM32Exkm5wa932u2Bnt3VA)
+
+This presentation covers:
+- 🎯 **Agentic AI Architecture**: Understanding autonomous agent orchestration
+- 🔄 **Dynamic Routing**: How agents make intelligent decisions
+- 🏗️ **System Design**: Multi-agent pipeline architecture
+- 📊 **Real-World Application**: Tariff analysis use case
+- 🚀 **Implementation Guide**: Building with FastAPI, LangGraph, and Azure OpenAI
+
+**Additional Resources**:
+- 📚 [LangGraph Flow Definition](docs/LANGGRAPH_FLOW_DEFINITION.md) - Detailed agent orchestration guide
+- 📊 [Tech Stack Analysis](docs/TECH_STACK_ANALYSIS.md) - Complete technology breakdown
+- 📋 [Data Quick Reference](data/docs/DATA_QUICK_REFERENCE.md) - Data structure documentation
+- 🎓 [Women Who Code TechFutures 2025](https://events.techfutures.com/2025/agenda/speakers/3778652) - Conference session
 
 ## 🚀 Quick Start
 
